@@ -1,5 +1,4 @@
 import pytest
-from app.models.trader_models import TraderType
 
 
 @pytest.fixture(scope="function")
