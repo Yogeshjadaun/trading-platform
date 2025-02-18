@@ -49,16 +49,11 @@ def upgrade():
         ORDER BY trade_count DESC;
     """)
 
-    op.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_trade_acceptance_rate ON trade_acceptance_rate (trader_id);")
-    op.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_market_conversion_rates ON market_conversion_rates (trade_id);")
-
     op.execute("CREATE INDEX IF NOT EXISTS idx_trade_status ON trade (status);")
     op.execute("CREATE INDEX IF NOT EXISTS idx_trade_created_at ON trade (created_at);")
 
 def downgrade():
     """Drop Materialized Views if rollback occurs"""
-    op.execute("DROP INDEX IF EXISTS idx_trade_acceptance_rate;")
-    op.execute("DROP INDEX IF EXISTS idx_market_conversion_rates;")
 
     op.execute("DROP INDEX IF EXISTS idx_trade_status;")
     op.execute("DROP INDEX IF EXISTS idx_trade_created_at;")
