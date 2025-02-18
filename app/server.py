@@ -8,6 +8,7 @@ from app.routes.trades import trades_bp
 from app.utils.cache import init_cache
 from app.utils.celery_config import celery
 from app.routes.reporting import reporting_bp
+from app.routes.health import health_bp
 
 load_dotenv()
 
@@ -20,6 +21,7 @@ def create_app():
     init_cache(app)
     celery.conf.update(app.config)
 
+    app.register_blueprint(health_bp, url_prefix='/health')
     app.register_blueprint(traders_bp, url_prefix='/traders')
     app.register_blueprint(inventory_bp, url_prefix='/inventory')
     app.register_blueprint(trades_bp, url_prefix='/trades')

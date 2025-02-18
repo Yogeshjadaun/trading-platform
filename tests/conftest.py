@@ -1,7 +1,6 @@
 import pytest
 from app.server import create_app
 from app.database import db
-from sqlalchemy import text
 import os
 
 @pytest.fixture(scope="session")
@@ -11,7 +10,7 @@ def test_app():
     app.config["TESTING"] = True
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
         "TEST_DATABASE_URL", "postgresql://postgres:postgres@localhost:5433/test_trading_db"
-    )  # Use a separate test DB
+    )
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     return app
 
