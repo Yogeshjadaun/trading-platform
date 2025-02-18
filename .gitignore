@@ -1,5 +1,4 @@
 venv/
-migrations/
 *.log
 .idea/
 pytest_cache/
