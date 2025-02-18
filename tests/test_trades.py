@@ -109,7 +109,7 @@ def test_reverse_trade(test_client, setup_trade_data):
     trade_id = trade_response.json.get("trade_id") if trade_response.is_json else None
     assert trade_id, f"Trade ID missing from response: {trade_response.text}"
 
-    test_client.post(f'/trades/trade/{trade_id}/response', json={"response": "accept"})
+    test_client.post(f'/trades/trade/{trade_id}/response', json={"response": "accept", "response_by": setup_trade_data["trader2_id"]})
 
     response = test_client.post(f'/trades/trade/{trade_id}/reverse', json={"reason": "Item was defective"})
     assert response.status_code == 200

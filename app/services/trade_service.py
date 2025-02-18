@@ -84,7 +84,7 @@ def respond_trade(trade_id, response):
     return {"message": SUCCESS_TRADE_ACCEPTED}, 200
 
 
-def reverse_trade(trade_id, reason):
+def reverse_trade(trade_id, reason, trade_reversed_by):
     """Handles trade reversal"""
     trade = Trade.query.get(trade_id)
     if not trade or trade.status != TradeStatus.ACCEPTED.value:
@@ -94,6 +94,8 @@ def reverse_trade(trade_id, reason):
     if existing_reversal:
         return {"error": ERROR_ALREADY_REVERSED}, 400
 
+    reverse_trade = ReverseTrade(original_trade_id=trade_id, reverse_reason=reason, trade_reversed_by=trade_reversed_by)
+    db.session.add(reverse_trade)
     trade.status = TradeStatus.REVERSED.value
     db.session.commit()
     log_trade_action(trade.id, "Trade Reversed", f"Trade reversed: {reason}", trade.traded_to)

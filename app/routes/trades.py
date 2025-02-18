@@ -34,7 +34,7 @@ def handle_trade_response(trade_id):
 def handle_trade_reversal(trade_id):
     """Reverse a trade"""
     data = request.json
-    response, status = reverse_trade(trade_id, data.get("reason"))
+    response, status = reverse_trade(trade_id, data.get("reason"), data.get("trade_reversed_by"))
 
     cache.delete(f"trade_{trade_id}")
     return jsonify(response), status
