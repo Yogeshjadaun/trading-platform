@@ -2,7 +2,7 @@
 FROM python:3.11
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /trading_service
 
 # Copy the requirements file and install dependencies
 COPY requirements.txt ./
@@ -12,9 +12,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Set environment variables
-ENV FLASK_APP=app.server
+ENV FLASK_APP=trading_service.server
 ENV FLASK_ENV=production
 ENV DATABASE_URL=postgresql://postgres:postgres@db:5432/trading_db
+ENV DB_HOST=db
 ENV REDIS_URL=redis://redis:6379/0
 ENV CELERY_BROKER_URL=redis://redis:6379/0
 ENV CELERY_RESULT_BACKEND=redis://redis:6379/0

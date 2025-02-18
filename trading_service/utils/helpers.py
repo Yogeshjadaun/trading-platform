@@ -1,6 +1,6 @@
 from datetime import datetime
-from app.database import db
-from app.models.audit_models import TradeAuditLog
+from trading_service.database import db
+from trading_service.models.audit_models import TradeAuditLog
 
 def log_trade_action(trade_id, event_type, details, triggered_by):
     """Logs trade events into the audit table"""

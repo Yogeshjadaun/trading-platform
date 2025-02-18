@@ -1,10 +1,10 @@
 from datetime import datetime
-from app.database import db
-from app.models.trade_models import Trade, TradeCommodity, TradeStatus, ReverseTrade
-from app.models.trader_models import Trader
-from app.utils.helpers import  log_trade_action
-from app.utils.validators import has_sufficient_inventory
-from app.utils.constants import *
+from trading_service.database import db
+from trading_service.models.trade_models import Trade, TradeCommodity, TradeStatus, ReverseTrade
+from trading_service.models.trader_models import Trader
+from trading_service.utils.helpers import  log_trade_action
+from trading_service.utils.validators import has_sufficient_inventory
+from trading_service.utils.constants import *
 
 
 def create_trade(trader_from, trader_to, offered_items, requested_items):

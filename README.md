@@ -70,7 +70,7 @@ psql -U postgres -c "CREATE DATABASE trading_db;"
 
 Now, apply migrations to create tables and indexes:
 ```sh
-export FLASK_APP=app.server
+export FLASK_APP=trading_service.server
 flask db upgrade
 ```
 
@@ -88,7 +88,7 @@ This will list all tables in the `trading_db` database.
 ### **5️⃣ Start the Flask Application**
 Run the backend API server:
 ```sh
-python -m app.server
+python -m trading_service.server
 ```
 
 ---
@@ -109,13 +109,13 @@ The test setup uses **SQLite in-memory database** for faster execution.
 ### **6️⃣ Start Celery Worker**
 Celery is used for background task execution, such as refreshing materialized views.
 ```sh
-celery -A app.server.celery worker --loglevel=info
+celery -A trading_service.server.celery worker --loglevel=info
 ```
 
 ### **7️⃣ Start Celery Beat (Task Scheduler)**
 Celery Beat is used to **schedule periodic background tasks**, such as updating trade reports.
 ```sh
-celery -A app.server.celery beat --loglevel=info
+celery -A trading_service.server.celery beat --loglevel=info
 ```
 
 

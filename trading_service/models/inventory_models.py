@@ -2,7 +2,7 @@ from enum import Enum
 
 from sqlalchemy.dialects.postgresql import ENUM
 
-from app.database import db
+from trading_service.database import db
 from datetime import datetime
 
 CommodityPropertyTypeEnum = ENUM(

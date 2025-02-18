@@ -1,5 +1,5 @@
-from app.utils.celery_config import celery
-from app.database import db
+from trading_service.utils.celery_config import celery
+from trading_service.database import db
 from sqlalchemy import text
 import logging
 

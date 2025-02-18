@@ -37,6 +37,7 @@ services:
       REDIS_PORT: 6379
       CELERY_BROKER_URL: redis://redis:6379/0
       CELERY_RESULT_BACKEND: redis://redis:6379/0
+      DB_HOST: db
 
   worker:
     build: .
@@ -50,7 +51,7 @@ services:
       REDIS_URL: redis://redis:6379/0
       CELERY_BROKER_URL: redis://redis:6379/0
       CELERY_RESULT_BACKEND: redis://redis:6379/0
-    command: ["celery", "-A", "app.server.celery", "worker", "--loglevel=info"]
+    command: ["celery", "-A", "trading_service.server.celery", "worker", "--loglevel=info"]
 
   beat:
     build: .
@@ -64,7 +65,7 @@ services:
       REDIS_URL: redis://redis:6379/0
       CELERY_BROKER_URL: redis://redis:6379/0
       CELERY_RESULT_BACKEND: redis://redis:6379/0
-    command: ["celery", "-A", "app.server.celery", "beat", "--loglevel=info"]
+    command: ["celery", "-A", "trading_service.server.celery", "beat", "--loglevel=info"]
 
 volumes:
   postgres_data:

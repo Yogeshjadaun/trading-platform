@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
-from app.services.trade_service import create_trade, respond_trade, reverse_trade
-from app.utils.cache import cache
+from trading_service.services.trade_service import create_trade, respond_trade, reverse_trade
+from trading_service.utils.cache import cache
 
 trades_bp = Blueprint('trades', __name__)
 

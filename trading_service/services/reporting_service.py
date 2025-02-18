@@ -1,4 +1,4 @@
-from app.database import db
+from trading_service.database import db
 from sqlalchemy import text
 
 def get_trade_acceptance_report():

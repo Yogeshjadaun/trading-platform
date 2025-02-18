@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
-from app.models import Trader
-from app.database import db
-from app.utils.cache import cache
+from trading_service.models import Trader
+from trading_service.database import db
+from trading_service.utils.cache import cache
 
 traders_bp = Blueprint('traders', __name__)
 

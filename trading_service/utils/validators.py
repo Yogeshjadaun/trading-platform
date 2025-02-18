@@ -1,4 +1,4 @@
-from app.models.inventory_models import TraderInventory
+from trading_service.models.inventory_models import TraderInventory
 
 def has_sufficient_inventory(trader_id, commodities):
     """Check if trader has required commodities in sufficient quantity."""

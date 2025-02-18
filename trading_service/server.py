@@ -1,14 +1,14 @@
 from flask import Flask
 from dotenv import load_dotenv
 import os
-from app.database import init_db
-from app.routes.traders import traders_bp
-from app.routes.inventory import inventory_bp
-from app.routes.trades import trades_bp
-from app.utils.cache import init_cache
-from app.utils.celery_config import celery
-from app.routes.reporting import reporting_bp
-from app.routes.health import health_bp
+from trading_service.database import init_db
+from trading_service.routes.traders import traders_bp
+from trading_service.routes.inventory import inventory_bp
+from trading_service.routes.trades import trades_bp
+from trading_service.utils.cache import init_cache
+from trading_service.utils.celery_config import celery
+from trading_service.routes.reporting import reporting_bp
+from trading_service.routes.health import health_bp
 
 load_dotenv()
 

@@ -1,4 +1,4 @@
-from app.models.trader_models import TraderType
+from trading_service.models.trader_models import TraderType
 
 def test_create_trader(test_client):
     """Test creating a new trader"""

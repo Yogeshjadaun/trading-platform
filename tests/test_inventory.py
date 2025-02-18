@@ -1,6 +1,6 @@
 import pytest
-from app.models.inventory_models import CommodityPropertyType
-from app.utils.constants import SUCCESS_COMMODITY_UPDATED, SUCCESS_COMMODITY_DELETED, SUCCESS_PROPERTY_UPDATED, \
+from trading_service.models.inventory_models import CommodityPropertyType
+from trading_service.utils.constants import SUCCESS_COMMODITY_UPDATED, SUCCESS_COMMODITY_DELETED, SUCCESS_PROPERTY_UPDATED, \
     SUCCESS_PROPERTY_DELETED, SUCCESS_INVENTORY_UPDATED
 
 

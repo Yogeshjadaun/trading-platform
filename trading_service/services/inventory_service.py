@@ -1,7 +1,7 @@
-from app.database import db
-from app.models.inventory_models import Commodity, CommodityProperty, TraderInventory
-from app.utils.constants import *
-from app.utils.helpers import commit_and_flush
+from trading_service.database import db
+from trading_service.models.inventory_models import Commodity, CommodityProperty, TraderInventory
+from trading_service.utils.constants import *
+from trading_service.utils.helpers import commit_and_flush
 
 def create_commodity(name, category, properties=[]):
     """Creates a commodity with optional properties"""

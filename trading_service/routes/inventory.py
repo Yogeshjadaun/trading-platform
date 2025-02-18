@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
-from app.services.inventory_service import *
-from app.utils.cache import cache
+from trading_service.services.inventory_service import *
+from trading_service.utils.cache import cache
 
 inventory_bp = Blueprint('inventory', __name__)
 

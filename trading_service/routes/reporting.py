@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
-from app.services.reporting_service import get_trade_acceptance_report, get_market_conversion_report
-from app.tasks.reporting_tasks import refresh_materialized_views, refresh_materialized_views_data
+from trading_service.services.reporting_service import get_trade_acceptance_report, get_market_conversion_report
+from trading_service.tasks.reporting_tasks import refresh_materialized_views, refresh_materialized_views_data
 
 reporting_bp = Blueprint('reporting', __name__)
 

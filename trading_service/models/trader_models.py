@@ -2,7 +2,7 @@ import enum
 
 from sqlalchemy.dialects.postgresql import ENUM
 
-from app.database import db
+from trading_service.database import db
 from datetime import datetime
 
 TraderTypeEnum = ENUM("elf", "wizard", "dwarf", name="tradertype", create_type=False)

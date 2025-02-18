@@ -1,10 +1,10 @@
 from flask import Blueprint, jsonify
 from sqlalchemy import text
 
-from app.database import db
+from trading_service.database import db
 from redis import Redis
 from celery.result import AsyncResult
-from app.utils.celery_config import celery
+from trading_service.utils.celery_config import celery
 import os
 
 health_bp = Blueprint("health", __name__)
@@ -35,7 +35,7 @@ def health_check():
         health_status["redis"] = f"error: {str(e)}"
 
     try:
-        test_task = celery.send_task("app.tasks.ping_task")
+        test_task = celery.send_task("trading_service.tasks.ping_task")
         result = AsyncResult(test_task.id, app=celery)
         if result:
             health_status["celery"] = "connected"
