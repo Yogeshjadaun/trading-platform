@@ -10,6 +10,36 @@ git clone https://github.com/Yogeshjadaun/trading-platform.git
 cd trading-platform
 ```
 
+
+### **2️⃣ Setup using Docker**
+#### To start and build:
+```sh
+docker-compose up --build -d
+```
+#### To check logs:
+```sh
+docker-compose logs -f
+```
+#### To stop:
+```sh
+docker-compose down
+```
+#### To run tests:
+```sh
+docker-compose run --rm web pytest --disable-warnings -s -v
+```
+#### To run the application:
+```sh
+docker-compose up
+```
+#### To check the application:
+```sh
+curl http://localhost:5000/health
+```
+
+## Or
+
+
 ### **2️⃣ Setup Virtual Environment & Install Dependencies**
 ```sh
 python3 -m venv venv
@@ -98,4 +128,3 @@ celery -A app.server.celery beat --loglevel=info
 ✅ Enhance API Documentation  
 
 ---
-
